@@ -2,9 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { University } from "../Models/Common";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
-import { Toolbar } from "../components/Toollbar/Toolbar";
 import { Input } from "../components/Input/Input";
-import { normalize } from "path/posix";
 import { GlobalSearch } from "../components/GlobalSearch/GlobalSearch";
 
 export function Home() {
@@ -28,9 +26,6 @@ export function Home() {
   //Tratando o efeito colateral de chamadas infinitas à API
   useEffect(() => {
     fetchUniversities();
-    // if (filter === "") {
-      
-    // }
   }, [universities]);
 
   //Busca Global
@@ -90,8 +85,6 @@ export function Home() {
     ];
 
     var mergedSearch = search.filter(onlyUnique);
-
-    console.log("merge", mergedSearch)
     
     setUniversities(mergedSearch);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -137,7 +130,6 @@ export function Home() {
     },
   ];
 
-  console.log("filter", filter);
   return (
     <>
       <GlobalSearch>
